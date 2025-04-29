@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <main class="container mt-5">
+      <div class="card-body text-center">
+        <h2 class="card-title">Добро пожаловать, <span id="userName">{{ user.username }}</span>!</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+            <h3>Добавить ребенка</h3>
+            <form method="post" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.name.label_tag }}
+                    {{ form.name }}
+                    {% if form.name.errors %}
+                        <div class="invalid-feedback">
+                            {{ form.name.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="mb-3">
+                    {{ form.age.label_tag }}
+                    {{ form.age }}
+                    {% if form.age.errors %}
+                        <div class="invalid-feedback">
+                            {{ form.age.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="mb-3">
+                    {{ form.group.label_tag }}
+                    {{ form.group }}
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Добавить</button>
+            </form>
+        </div>
+        
+        <div class="col-md-6">
+            <h3>Ваши дети</h3>
+            {% if children %}
+                <ul class="list-group">
+                    {% for child in children %}
+                        <li class="list-group-item">
+                            {{ child.name }}, {{ child.age }} лет - группа {{ child.group }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>У вас пока нет добавленных детей.</p>
+            {% endif %}
+        </div>
+    </div>
+      </main>
+{% endblock %}
