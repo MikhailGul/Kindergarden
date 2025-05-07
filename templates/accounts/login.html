@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="auth-form login-form">
+                <h2 class="form-title">Форма входа</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_username" class="form-label">Логин</label>
+                        <input type="text" name="username" id="id_username" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password" class="form-label">Пароль</label>
+                        <input type="password" name="password" id="id_password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn-form">Войти</button>
+                </form>
+                <div class="form-footer">
+                    Ещё нет аккаунта? <a href="{% url 'register' %}" class="form-link">Зарегистрируйтесь</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% if error %}
+<div class="alert alert-danger">{{ error }}</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <!-- Новый баннер -->
+    <div class="open-day-banner">
+        <div class="banner-content">
+            <h1>День открытых дверей в "Солнышко"!</h1>
+            <p class="lead">Приходите и познакомьтесь с нашим детским садом</p>
+            <div class="banner-highlights">
+                <div class="highlight-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>25 мая 2023</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-clock"></i>
+                    <span>10:00 - 14:00</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>г. Москва, ул. Детская, 123</span>
+                </div>
+            </div>
+            <a href="{% url 'open_day_registration' %}" class="btn btn-enroll">
+                <i class="fas fa-pencil-alt me-2"></i> Записаться на день открытых дверей
+            </a>
+        </div>
+        <div class="banner-image">
+            <img src="/static/images/kids-playing.jpg" alt="Дети играют">
+        </div>
+    </div>
+
+<div class="row my-5 text-center">
+    <div class="col-md-3 bounce">
+        <div class="kid-element" style="background-color: #FF6B6B;">
+            <i class="fas fa-paint-brush"></i>
+        </div>
+        <h4 class="mt-3">Творчество</h4>
+    </div>
+    <div class="col-md-3 bounce">
+        <div class="kid-element" style="background-color: #4ECDC4;">
+            <i class="fas fa-music"></i>
+        </div>
+        <h4 class="mt-3">Музыка</h4>
+    </div>
+    <div class="col-md-3 bounce">
+        <div class="kid-element" style="background-color: #FFD166;">
+            <i class="fas fa-running"></i>
+        </div>
+        <h4 class="mt-3">Спорт</h4>
+    </div>
+    <div class="col-md-3 bounce">
+        <div class="kid-element" style="background-color: #06D6A0;">
+            <i class="fas fa-book"></i>
+        </div>
+        <h4 class="mt-3">Обучение</h4>
+    </div>
+</div>
+</div>
+
+<section class="about-section mb-5">
+    <h2 class="mb-4">О нашем детском саде</h2>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <img src="/static/images/kindergarten_interior.jpg" class="card-img-top" alt="Интерьер">
+                <div class="card-body">
+                    <h5 class="card-title">Уютный интерьер</h5>
+                    <p class="card-text">Наши помещения оборудованы с учетом всех требований безопасности и комфорта для детей.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <img src="/static/images/method.jpg" class="card-img-top" alt="Воспитательный подход">
+                <div class="card-body">
+                    <h5 class="card-title">Индивидуальный подход</h5>
+                    <p class="card-text">Мы учитываем особенности каждого ребенка и помогаем ему развиваться в своем темпе.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="events-section">
+    <h2 class="mb-4">Наши мероприятия</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="/static/images/opendoors.png" class="card-img-top" alt="Мероприятие 1">
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="/static/images/classes.jpg" class="card-img-top" alt="Мероприятие 2">
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="/static/images/health.jpg" class="card-img-top" alt="Мероприятие 3">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

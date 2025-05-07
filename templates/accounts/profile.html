@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Личный кабинет</h2>
+<p>Добро пожаловать, {{ user.last_name }} {{ user.first_name }}!</p>
+
+<div class="mb-4">
+    <h3>Ваши дети</h3>
+    {% if children %}
+    <div class="row">
+        {% for child in children %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ child.first_name }}</h5>
+                    <p class="card-text">Возраст: {{ child.age }} лет</p>
+                    <p class="card-text">Группа: {{ child.group.name }}</p>
+                    <a href="{% url 'child_gallery' child.id %}" class="btn btn-primary">Галерея</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>У вас пока нет детей в нашем детском саду.</p>
+    {% endif %}
+    <a href="{% url 'add_child' %}" class="btn btn-success">Добавить ребенка</a>
+</div>
+{% endblock %}

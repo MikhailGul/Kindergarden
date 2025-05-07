@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="auth-form register-form">
+        <h2 class="form-title">Регистрация родителя</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_last_name" class="form-label">Фамилия</label>
+                <input type="text" name="last_name" id="id_last_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="id_first_name" class="form-label">Имя</label>
+                <input type="text" name="first_name" id="id_first_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="id_email" class="form-label">Email</label>
+                <input type="email" name="email" id="id_email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="id_password1" class="form-label">Пароль</label>
+                <input type="password" name="password1" id="id_password1" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="id_password2" class="form-label">Подтверждение пароля</label>
+                <input type="password" name="password2" id="id_password2" class="form-control" required>
+            </div>
+            <button type="submit" class="btn-form">Зарегистрироваться</button>
+        </form>
+    </div>
+</div>
+{% if error %}
+<div class="alert alert-danger">{{ error }}</div>
+{% endif %}
+{% endblock %}
